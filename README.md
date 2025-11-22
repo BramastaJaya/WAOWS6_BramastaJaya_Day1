@@ -24,7 +24,6 @@
 [🚀 Quick Start](#-quick-start) •
 [📖 Dokumentasi](#-dokumentasi-api) •
 [🏗️ Arsitektur](#️-arsitektur-sistem) •
-[👨‍💻 Kontributor](#-kontributor)
 
 </div>
 
@@ -32,9 +31,9 @@
 
 ## 📋 Deskripsi Proyek
 
-**WAOW Season 6** adalah aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderful Adventure of Website"* oleh CODER Telkom University Surabaya. Proyek ini mendemonstrasikan implementasi sistem manajemen toko online dengan pendekatan **Role-Based Access Control (RBAC)** yang memisahkan hak akses antara Administrator dan Customer.
+aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderful Adventure of Website"* oleh CODER Telkom University Surabaya. mengimplementasikan sistem manajemen toko online berbasis **Role-Based Access Control (RBAC)** yang memisahkan hak akses antara Administrator dan Customer.
 
-### ✨ Highlights
+### Highlights
 
 - **Autentikasi & Otorisasi** - Sistem login yang aman dengan session management
 - **Multi-Role System** - Pembagian akses Admin dan Customer yang jelas
@@ -129,7 +128,7 @@
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
