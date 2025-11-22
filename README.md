@@ -270,12 +270,12 @@ python app.py
 
 | Method | Endpoint | Deskripsi | Auth |
 |--------|----------|-----------|------|
-| `GET` | `/api/admin/customers/` | Ambil semua customer | ✅ Admin |
-| `GET` | `/api/admin/customers/:id` | Ambil customer by ID | ✅ Admin |
-| `POST` | `/api/admin/customers/` | Tambah customer baru | ✅ Admin |
-| `PUT` | `/api/admin/customers/:id` | Update customer | ✅ Admin |
-| `DELETE` | `/api/admin/customers/:id` | Hapus customer | ✅ Admin |
-| `GET` | `/api/admin/customers/stats` | Statistik customer | ✅ Admin |
+| `GET` | `/api/admin/customers/` | Ambil semua customer |  Admin |
+| `GET` | `/api/admin/customers/:id` | Ambil customer by ID |  Admin |
+| `POST` | `/api/admin/customers/` | Tambah customer baru |  Admin |
+| `PUT` | `/api/admin/customers/:id` | Update customer |  Admin |
+| `DELETE` | `/api/admin/customers/:id` | Hapus customer |  Admin |
+| `GET` | `/api/admin/customers/stats` | Statistik customer |  Admin |
 
 <details>
 <summary><code>GET</code> <code>/api/admin/customers/</code> - Get All Customers</summary>
