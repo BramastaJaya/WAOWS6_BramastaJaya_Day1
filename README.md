@@ -1,1 +1,572 @@
-# waows6_BramastaJaya_day1
+<div align="center">
+
+# 🛒 WAOW Season 6 - E-Commerce Platform
+
+### *Wonderful Adventure of Website*
+
+[![Flask](https://img.shields.io/badge/Flask-2.3.0-green?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Version-1.0.0-orange?style=flat-square" alt="Version">
+</p>
+
+---
+
+**Platform e-commerce modern dengan sistem Role-Based Access Control (RBAC)**  
+**yang dibangun menggunakan arsitektur MVP dan RESTful API**
+
+[🚀 Quick Start](#-quick-start) •
+[📖 Dokumentasi](#-dokumentasi-api) •
+[🏗️ Arsitektur](#️-arsitektur-sistem) •
+[👨‍💻 Kontributor](#-kontributor)
+
+</div>
+
+---
+
+## 📋 Deskripsi Proyek
+
+**WAOW Season 6** adalah aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderful Adventure of Website"* oleh CODER Telkom University Surabaya. Proyek ini mendemonstrasikan implementasi sistem manajemen toko online dengan pendekatan **Role-Based Access Control (RBAC)** yang memisahkan hak akses antara Administrator dan Customer.
+
+### ✨ Highlights
+
+- 🔐 **Autentikasi & Otorisasi** - Sistem login yang aman dengan session management
+- 👥 **Multi-Role System** - Pembagian akses Admin dan Customer yang jelas
+- 📊 **Dashboard Analytics** - Statistik real-time untuk monitoring bisnis
+- 🛍️ **CRUD Operations** - Manajemen lengkap untuk Customers, Products, dan Transactions
+- 🎨 **Modern UI/UX** - Antarmuka responsif dengan Bootstrap 5
+- ⚡ **Async Operations** - Komunikasi client-server menggunakan Fetch API
+
+---
+
+## 🎯 Fitur Utama
+
+<table>
+<tr>
+<td width="50%">
+
+### 👨‍💼 Admin Features
+- ✅ Dashboard dengan statistik lengkap
+- ✅ Manajemen data Customer (CRUD)
+- ✅ Manajemen data Product (CRUD)
+- ✅ Manajemen data Transaction
+- ✅ Monitoring aktivitas sistem
+- ✅ Akses penuh ke semua modul
+
+</td>
+<td width="50%">
+
+### 🛒 Customer Features
+- ✅ Registrasi & Login akun
+- ✅ Melihat katalog produk
+- ✅ Melakukan pemesanan
+- ✅ Riwayat transaksi pribadi
+- ✅ Update profil akun
+- ✅ Dashboard personal
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🏗️ Arsitektur Sistem
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        CLIENT LAYER                              │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐              │
+│  │    HTML     │  │     CSS     │  │ JavaScript  │              │
+│  │  (Views)    │  │ (Bootstrap) │  │ (Fetch API) │              │
+│  └──────┬──────┘  └─────────────┘  └──────┬──────┘              │
+│         │                                  │                     │
+│         └──────────────┬───────────────────┘                     │
+│                        │ HTTP Request/Response                   │
+└────────────────────────┼─────────────────────────────────────────┘
+                         │
+┌────────────────────────┼─────────────────────────────────────────┐
+│                        ▼                                         │
+│                  SERVER LAYER                                    │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                    Flask Application                     │    │
+│  │  ┌───────────┐  ┌───────────┐  ┌───────────────────┐   │    │
+│  │  │  Routes   │  │Blueprints │  │   Middleware      │   │    │
+│  │  │ (API)     │  │ (Modules) │  │ (Auth/Validation) │   │    │
+│  │  └─────┬─────┘  └─────┬─────┘  └─────────┬─────────┘   │    │
+│  │        │              │                  │              │    │
+│  │        └──────────────┼──────────────────┘              │    │
+│  │                       │                                 │    │
+│  └───────────────────────┼─────────────────────────────────┘    │
+│                          │                                       │
+└──────────────────────────┼───────────────────────────────────────┘
+                           │
+┌──────────────────────────┼───────────────────────────────────────┐
+│                          ▼                                       │
+│                   DATABASE LAYER                                 │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                      MySQL 8.0                           │    │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐   │    │
+│  │  │  users   │ │ products │ │customers │ │transactions│  │    │
+│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘   │    │
+│  └─────────────────────────────────────────────────────────┘    │
+│                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+### 📐 Design Pattern: MVP (Model-View-Presenter)
+
+| Layer | Teknologi | Deskripsi |
+|-------|-----------|-----------|
+| **Model** | MySQL + Python | Business logic & data access |
+| **View** | HTML + Bootstrap | User interface components |
+| **Presenter** | Flask + JavaScript | Mediator antara Model dan View |
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+Pastikan sistem Anda sudah terinstall:
+
+- ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white) Python 3.8 atau lebih tinggi
+- ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql&logoColor=white) MySQL Server 8.0
+- ![Git](https://img.shields.io/badge/Git-latest-red?logo=git&logoColor=white) Git (opsional)
+
+### 📥 Instalasi
+
+**1️⃣ Clone Repository**
+
+```bash
+git clone https://github.com/username/waow-season6.git
+cd waow-season6
+```
+
+**2️⃣ Buat Virtual Environment**
+
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3️⃣ Install Dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**4️⃣ Setup Database**
+
+```bash
+# Login ke MySQL
+mysql -u root -p
+
+# Buat database
+CREATE DATABASE myshop;
+USE myshop;
+
+# Import schema
+source MyShop.sql;
+```
+
+**5️⃣ Konfigurasi Environment**
+
+Buat file `config/database.py` atau sesuaikan konfigurasi:
+
+```python
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': 'your_password',
+    'database': 'myshop'
+}
+```
+
+**6️⃣ Jalankan Aplikasi**
+
+```bash
+python app.py
+```
+
+**7️⃣ Akses Aplikasi**
+
+```
+🌐 http://127.0.0.1:5000
+```
+
+---
+
+## 📖 Dokumentasi API
+
+### 🔑 Authentication Endpoints
+
+<details>
+<summary><code>POST</code> <code>/api/auth/register</code> - Registrasi User Baru</summary>
+
+#### Request Body
+
+```json
+{
+    "Name": "John Doe",
+    "Email": "john@example.com",
+    "Password": "secure123",
+    "Gender": "Male",
+    "DateofBirth": "1995-05-15"
+}
+```
+
+#### Response
+
+```json
+{
+    "success": true,
+    "message": "User registered successfully",
+    "user_id": 1
+}
+```
+
+</details>
+
+<details>
+<summary><code>POST</code> <code>/api/auth/login</code> - Login User</summary>
+
+#### Request Body
+
+```json
+{
+    "Email": "john@example.com",
+    "Password": "secure123"
+}
+```
+
+#### Response (Success)
+
+```json
+{
+    "success": true,
+    "UserId": 1,
+    "Name": "John Doe",
+    "Email": "john@example.com",
+    "RoleId": 2
+}
+```
+
+</details>
+
+---
+
+### 👥 Customer Endpoints
+
+| Method | Endpoint | Deskripsi | Auth |
+|--------|----------|-----------|------|
+| `GET` | `/api/admin/customers/` | Ambil semua customer | ✅ Admin |
+| `GET` | `/api/admin/customers/:id` | Ambil customer by ID | ✅ Admin |
+| `POST` | `/api/admin/customers/` | Tambah customer baru | ✅ Admin |
+| `PUT` | `/api/admin/customers/:id` | Update customer | ✅ Admin |
+| `DELETE` | `/api/admin/customers/:id` | Hapus customer | ✅ Admin |
+| `GET` | `/api/admin/customers/stats` | Statistik customer | ✅ Admin |
+
+<details>
+<summary><code>GET</code> <code>/api/admin/customers/</code> - Get All Customers</summary>
+
+#### Response
+
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "CustomerID": 1,
+            "Name": "John Doe",
+            "Gender": "Male",
+            "Age": 28,
+            "Annual_Income": 75,
+            "Spending_Score": 85,
+            "created_at": "2025-01-15T10:30:00"
+        }
+    ],
+    "total": 1
+}
+```
+
+</details>
+
+<details>
+<summary><code>POST</code> <code>/api/admin/customers/</code> - Create Customer</summary>
+
+#### Request Body
+
+```json
+{
+    "Name": "Jane Smith",
+    "Email": "jane@example.com",
+    "Password": "password123",
+    "Gender": "Female",
+    "DateofBirth": "1998-03-20",
+    "RoleId": 2,
+    "Annual_Income": 65,
+    "Spending_Score": 72
+}
+```
+
+#### Response
+
+```json
+{
+    "success": true,
+    "message": "Customer created successfully",
+    "user_id": 2,
+    "customer_id": 2
+}
+```
+
+</details>
+
+<details>
+<summary><code>PUT</code> <code>/api/admin/customers/:id</code> - Update Customer</summary>
+
+#### Request Body
+
+```json
+{
+    "Name": "Jane Doe",
+    "Gender": "Female",
+    "RoleId": 2,
+    "DateofBirth": "1998-03-20",
+    "Annual_Income": 70,
+    "Spending_Score": 80
+}
+```
+
+#### Response
+
+```json
+{
+    "success": true,
+    "message": "Customer updated successfully"
+}
+```
+
+</details>
+
+---
+
+### 📦 Product Endpoints
+
+| Method | Endpoint | Deskripsi | Auth |
+|--------|----------|-----------|------|
+| `GET` | `/api/admin/products/` | Ambil semua produk | ✅ Admin |
+| `GET` | `/api/admin/products/:id` | Ambil produk by ID | ✅ Admin |
+| `POST` | `/api/admin/products/` | Tambah produk baru | ✅ Admin |
+| `PUT` | `/api/admin/products/:id` | Update produk | ✅ Admin |
+| `DELETE` | `/api/admin/products/:id` | Hapus produk | ✅ Admin |
+
+---
+
+### 💳 Transaction Endpoints
+
+| Method | Endpoint | Deskripsi | Auth |
+|--------|----------|-----------|------|
+| `GET` | `/api/admin/transactions/` | Ambil semua transaksi | ✅ Admin |
+| `GET` | `/api/admin/transactions/:id` | Detail transaksi | ✅ Admin |
+| `POST` | `/api/admin/transactions/` | Buat transaksi baru | ✅ All |
+
+---
+
+## 🗄️ Database Schema
+
+```sql
+┌─────────────────┐       ┌─────────────────┐
+│    role_user    │       │      users      │
+├─────────────────┤       ├─────────────────┤
+│ RoleId (PK)     │◄──────│ UserId (PK)     │
+│ RoleName        │       │ Name            │
+│ RoleDef         │       │ Email           │
+└─────────────────┘       │ Password        │
+                          │ Gender          │
+                          │ DateofBirth     │
+                          │ RoleId (FK)     │
+                          └────────┬────────┘
+                                   │
+                                   ▼
+                          ┌─────────────────┐
+                          │  mall_customer  │
+                          ├─────────────────┤
+                          │ CustomerID (PK) │
+                          │ UserId (FK)     │
+                          │ Annual_Income   │
+                          │ Spending_Score  │
+                          └────────┬────────┘
+                                   │
+       ┌───────────────────────────┼───────────────────────────┐
+       │                           │                           │
+       ▼                           ▼                           ▼
+┌──────────────┐          ┌─────────────────┐         ┌───────────────────┐
+│  products    │          │  transactions   │         │transaction_details│
+├──────────────┤          ├─────────────────┤         ├───────────────────┤
+│ ProductID    │◄─────────│ TransactionID   │◄────────│ DetailID          │
+│ CategoryID   │          │ CustomerID (FK) │         │ TransactionID(FK) │
+│ Name         │          │ TransactionDate │         │ ProductID (FK)    │
+│ Price        │          │ TotalAmount     │         │ Quantity          │
+│ Stock        │          │ PaymentMethod   │         │ UnitPrice         │
+└──────────────┘          └─────────────────┘         │ Subtotal          │
+                                                      └───────────────────┘
+```
+
+---
+
+## 📁 Struktur Proyek
+
+```
+waow-season6/
+│
+├── 📁 config/
+│   └── database.py          # Konfigurasi database
+│
+├── 📁 routes/
+│   ├── __init__.py
+│   ├── auth.py              # Auth endpoints
+│   ├── customers.py         # Customer CRUD
+│   ├── products.py          # Product CRUD
+│   └── transactions.py      # Transaction handling
+│
+├── 📁 static/
+│   ├── 📁 css/
+│   │   └── style.css        # Custom styles
+│   └── 📁 js/
+│       ├── script.js        # Auth & session management
+│       ├── customers.js     # Customer operations
+│       ├── products.js      # Product operations
+│       └── main.js          # Dashboard scripts
+│
+├── 📁 templates/
+│   ├── 📁 auth/
+│   │   ├── login.html
+│   │   └── register.html
+│   ├── 📁 admin/
+│   │   ├── index.html
+│   │   ├── manage_customer.html
+│   │   ├── manage_product.html
+│   │   └── transactions.html
+│   └── 📁 customer/
+│       └── dashboard.html
+│
+├── app.py                   # Entry point aplikasi
+├── requirements.txt         # Python dependencies
+├── MyShop.sql              # Database schema
+└── README.md               # Dokumentasi (You are here!)
+```
+
+---
+
+## 🔒 Sistem Keamanan
+
+### Session Management
+
+```javascript
+// Session disimpan di localStorage dengan expiry time
+{
+    "userId": 1,
+    "name": "John Doe",
+    "roleId": 1,
+    "loginTime": "2025-01-15T10:30:00",
+    "expiresAt": "2025-01-16T10:30:00"  // 24 jam
+}
+```
+
+### Route Protection
+
+| Route Pattern | Access Level | Redirect if Unauthorized |
+|---------------|--------------|--------------------------|
+| `/auth/*` | Public | Dashboard (jika sudah login) |
+| `/admin/*` | Admin Only | Login page |
+| `/customer/*` | Customer Only | Login page |
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+| Category | Technology |
+|----------|------------|
+| **Backend** | ![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white) |
+| **Database** | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) |
+| **Frontend** | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
+| **UI Framework** | ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat-square&logo=bootstrap&logoColor=white) |
+| **Icons** | ![Bootstrap Icons](https://img.shields.io/badge/Bootstrap%20Icons-7952B3?style=flat-square&logo=bootstrap&logoColor=white) |
+
+</div>
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+
+| Login Page | Admin Dashboard |
+|------------|-----------------|
+| ![Login](https://via.placeholder.com/400x250?text=Login+Page) | ![Dashboard](https://via.placeholder.com/400x250?text=Admin+Dashboard) |
+
+| Customer Management | Product Catalog |
+|---------------------|-----------------|
+| ![Customers](https://via.placeholder.com/400x250?text=Customer+Management) | ![Products](https://via.placeholder.com/400x250?text=Product+Catalog) |
+
+</div>
+
+---
+
+## 🤝 Kontributor
+
+<div align="center">
+
+| Role | Name |
+|------|------|
+| 👨‍💻 Developer | Your Name |
+| 🎨 UI/UX | Your Name |
+| 📝 Documentation | Your Name |
+
+</div>
+
+---
+
+## 📄 License
+
+```
+MIT License
+
+Copyright (c) 2025 CODER Telkom University Surabaya
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
+
+---
+
+<div align="center">
+
+### ⭐ Star this repository if you find it helpful!
+
+**Made with ❤️ by CODER Telkom University Surabaya**
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
+
+---
+
+*"The only way to learn programming is by writing code." - Dennis Ritchie*
+
+</div>
