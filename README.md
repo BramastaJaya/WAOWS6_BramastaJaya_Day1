@@ -54,16 +54,6 @@ Aplikasi web e-commerce yang mengimplementasikan sistem manajemen toko online be
 -  Monitoring data Transaction
 
 </td>
-<td width="50%">
-
-###  FITUR CUSTOMER
--  Registrasi & Login akun
--  Melihat katalog produk
--  Melakukan pemesanan
--  Riwayat transaksi pribadi
--  Dashboard 
-
-</td>
 </tr>
 </table>
 
@@ -118,7 +108,7 @@ Aplikasi web e-commerce yang mengimplementasikan sistem manajemen toko online be
 |-------|-----------|-----------|
 | **Model** | MySQL + Python | Business logic & data access |
 | **View** | HTML + Bootstrap | User interface components |
-| **Presenter** | Flask + JavaScript | Mediator antara Model dan View |
+| **Presenter** | Flask + JavaScript | Penghubung antara Model dan View |
 
 ---
 
