@@ -41,11 +41,11 @@ Aplikasi web e-commerce yang mengimplementasikan sistem manajemen toko online be
 
 ---
 
-## FITUR UTAMA
+## FITUR WEBSITE
 
 <table>
 <tr>
-<td width="50%">
+<td width="60%">
 
 ### Admin Features
 -  Dashboard dengan statistik lengkap
