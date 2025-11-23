@@ -26,9 +26,9 @@
 
 ---
 
-## Deskripsi singkat Website
+## Deskripsi Website
 
-aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderful Adventure of Website"* oleh CODER Telkom University Surabaya. mengimplementasikan sistem manajemen toko online berbasis **Role-Based Access Control (RBAC)** yang memisahkan hak akses antara Administrator dan Customer.
+Aplikasi web e-commerce yang mengimplementasikan sistem manajemen toko online berbasis **Role-Based Access Control (RBAC)** yang memisahkan hak akses antara Administrator dan Customer. Sistem website bekerja dengan mengambil bagian administrasi saja, melakukan pemantauan transaksi yang sedang atau telah dilakukan oleh customer, memonitoring produk dan data customer secara penuh. Website ini bekerja dengan memeriksa email yang diterima dari user dan melakukan autentikasi pada backend untuk memastikan identitas user sebagai administrasi sistem. 
 
 ### Highlights
 
@@ -51,9 +51,7 @@ aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderf
 -  Dashboard dengan statistik lengkap
 -  Manajemen data Customer (CRUD)
 -  Manajemen data Product (CRUD)
--  Manajemen data Transaction
--  Monitoring aktivitas sistem
--  Akses penuh ke semua modul
+-  Monitoring data Transaction
 
 </td>
 <td width="50%">
@@ -63,8 +61,7 @@ aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderf
 -  Melihat katalog produk
 -  Melakukan pemesanan
 -  Riwayat transaksi pribadi
--  Update profil akun
--  Dashboard personal
+-  Dashboard 
 
 </td>
 </tr>
@@ -106,7 +103,7 @@ aplikasi web e-commerce yang dikembangkan sebagai bagian dari workshop *"Wonderf
 │                          ▼                                       │
 │                   DATABASE LAYER                                 │
 │  ┌─────────────────────────────────────────────────────────┐     │
-│  │                      MySQL 8.0                          │     │
+│  │                      MySQL                              │     │
 │  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐    │     │
 │  │  │  users   │ │ products │ │customers │ │transacti.│    │     │
 │  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘    │     │
@@ -133,15 +130,15 @@ Pastikan sistem Anda sudah terinstall:
 
 - ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white) Python 3.8 atau lebih tinggi
 - ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?logo=mysql&logoColor=white) MySQL Server 8.0
-- ![Git](https://img.shields.io/badge/Git-latest-red?logo=git&logoColor=white) Git (opsional)
+- ![Git](https://img.shields.io/badge/Git-latest-red?logo=git&logoColor=white) Git (ini opsional)
 
 ### How to Install on Windows:
 
 **1️ Clone Repository**
 
 ```bash
-git clone https://github.com/username/waow-season6.git
-cd waow-season6
+git clone https://github.com/BramastaJaya/waows6-BramastaJaya-day1.git
+cd waows6-BramastaJaya-day1
 ```
 
 **2 Buat Virtual Environment**
@@ -169,8 +166,8 @@ pip install -r requirements.txt
 mysql -u root -p
 
 # Buat database
-CREATE DATABASE myshop;
-USE myshop;
+CREATE DATABASE shop;
+USE shop;
 
 # Import schema
 source MyShop.sql;
@@ -184,14 +181,17 @@ Buat file `config/database.py` atau sesuaikan konfigurasi dengan localhost dan r
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'your_password',
-    'database': 'myshop'
+    'password': 'YourPassword',
+    'database': 'shopDB'
 }
 ```
 
 **6️ Jalankan Aplikasi**
 
 ```bash
+py app.py 
+```
+```or 
 python app.py
 ```
 
@@ -214,11 +214,11 @@ python app.py
 
 ```json
 {
-    "Name": "John Doe",
-    "Email": "john@example.com",
-    "Password": "secure123",
+    "Name": "Bramasta Jaya",
+    "Email": "Bramasta@waows6.com",
+    "Password": "customer123",
     "Gender": "Male",
-    "DateofBirth": "1995-05-15"
+    "DateofBirth": "2025-05-15"
 }
 ```
 
@@ -241,8 +241,8 @@ python app.py
 
 ```json
 {
-    "Email": "john@example.com",
-    "Password": "secure123"
+    "Email": "Bramsta@waows6.com",
+    "Password": "customer123"
 }
 ```
 
@@ -252,8 +252,8 @@ python app.py
 {
     "success": true,
     "UserId": 1,
-    "Name": "John Doe",
-    "Email": "john@example.com",
+    "Name": "Bramasta Jaya",
+    "Email": "Bramasta@waows6.com",
     "RoleId": 2
 }
 ```
@@ -306,10 +306,10 @@ python app.py
 ```json
 {
     "Name": "Jane Smith",
-    "Email": "jane@example.com",
+    "Email": "Jane@waows6.com",
     "Password": "password123",
     "Gender": "Female",
-    "DateofBirth": "1998-03-20",
+    "DateofBirth": "2005-03-20",
     "RoleId": 2,
     "Annual_Income": 65,
     "Spending_Score": 72
@@ -376,7 +376,6 @@ python app.py
 |--------|----------|-----------|------|
 | `GET` | `/api/admin/transactions/` | Ambil semua transaksi |  Admin |
 | `GET` | `/api/admin/transactions/:id` | Detail transaksi |  Admin |
-| `POST` | `/api/admin/transactions/` | Buat transaksi baru |  All |
 
 ---
 
@@ -405,9 +404,9 @@ python app.py
                           │ Spending_Score  │
                           └────────┬────────┘
                                    │
-       ┌───────────────────────────┼───────────────────────────┐
-       │                           │                           │
-       ▼                           ▼                           ▼
+                                   ┼───────────────────────────┐
+                                   │                           │
+                                   ▼                           ▼
 ┌──────────────┐          ┌─────────────────┐         ┌───────────────────┐
 │  products    │          │  transactions   │         │transaction_details│
 ├──────────────┤          ├─────────────────┤         ├───────────────────┤
@@ -417,7 +416,17 @@ python app.py
 │ Price        │          │ TotalAmount     │         │ Quantity          │
 │ Stock        │          │ PaymentMethod   │         │ UnitPrice         │
 └──────────────┘          └─────────────────┘         │ Subtotal          │
-                                                      └───────────────────┘
+       |                                              └───────────────────┘
+       |  
+┌──────────────┐         
+│Category Pro..│         
+├──────────────┤         
+│ CategoryID   │
+│     Name     │
+│ Description  |    
+└──────────────┘
+
+```
 ```
 
 ---
