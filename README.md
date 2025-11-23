@@ -32,11 +32,11 @@ Aplikasi web e-commerce yang mengimplementasikan sistem manajemen toko online be
 
 ### Highlights
 
-- **Autentikasi & Otorisasi** - Sistem login yang aman dengan session management
-- **Multi-Role System** - Pembagian akses Admin dan Customer yang jelas
-- **Dashboard Analytics** - Statistik real-time untuk monitoring bisnis
-- **CRUD Operations** - Manajemen lengkap untuk Customers, Products, dan Transactions
-- **Modern UI/UX** - Antarmuka responsif dengan Bootstrap 5
+- **Autentikasi & Otorisasi** - Sistem login dengan session management
+- **Multi-Role System** - Akses yang terbagi menjadi Admin dan Customer 
+- **Dashboard Analytics** - Statistik untuk monitoring bisnis
+- **CRUD Operations** - Manajemen untuk Customers, Products, dan Transactions
+- **Modern UI/UX** - Antarmuka UI menggunakan Bootstrap 5
 - **Async Operations** - Komunikasi client-server menggunakan Fetch API
 
 ---
